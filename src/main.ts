@@ -1,5 +1,5 @@
-import { app, BrowserWindow } from "electron"
-import * as path from "path"
+import { app, BrowserWindow } from 'electron'
+import * as path from 'path'
 
 let mainWindow
 function createWindow() {
@@ -7,21 +7,22 @@ function createWindow() {
     height: 1000,
     width: 1400,
     webPreferences: {
-      preload: path.join(__dirname, "preload.js"),
+      preload: path.join(__dirname, 'preload.js'),
     },
   })
-  mainWindow.loadFile(path.join(__dirname, "../index.html"))
+  // mainWindow.loadFile(path.join(__dirname, "../index.html"))
+  mainWindow.loadURL('http://localhost:8001')
   mainWindow.webContents.openDevTools()
 }
 
-app.on("ready", () => {
+app.on('ready', () => {
   createWindow()
 
-  app.on("activate", () => {
+  app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })
 })
 
-app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") app.quit()
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') app.quit()
 })

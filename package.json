@@ -2,6 +2,8 @@
   "name": "remote-control",
   "version": "1.0.0",
   "license": "MIT",
+  "main": "dist/main.js",
+  "homepage": ".",
   "dependencies": {
     "@hot-loader/react-dom": "^17.0.1",
     "core-js": "3",
@@ -15,6 +17,7 @@
     "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.13.0",
     "@babel/runtime-corejs3": "^7.14.0",
+    "@types/electron-devtools-installer": "^2.2.0",
     "@types/progress-bar-webpack-plugin": "^2.1.1",
     "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.3",
@@ -24,9 +27,13 @@
     "babel-loader": "^8.2.2",
     "classnames": "^2.3.1",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "concurrently": "^6.1.0",
     "cross-env": "^7.0.3",
     "css-loader": "^5.2.4",
+    "electron-builder": "^22.11.1",
     "electron-devtools-installer": "^3.2.0",
+    "electron-is-dev": "^2.0.0",
+    "electron-reload": "^1.5.0",
     "eslint": "^7.3.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
@@ -44,16 +51,19 @@
     "ts-loader": "^9.1.2",
     "ts-node": "^9.1.1",
     "typescript": "^3.9.5",
+    "wait-on": "^5.3.0",
     "webpack": "^5.36.2",
     "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.7.3"
   },
   "scripts": {
-    "start:renderer": "cross-env NODE_ENV=development webpack serve --config build/webpack.dev.config.ts",
-    "build:renderer": "cross-env NODE_ENV=production webpack --config build/webpack.prod.config.ts",
-    "start:main": "",
-    "prepare": "husky install"
+    "start:renderer": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.config.ts",
+    "build:renderer": "cross-env NODE_ENV=production webpack --config config/webpack.prod.config.ts",
+    "electron:dev": "concurrently \"yarn start:renderer\" \"wait-on http://localhost:8001 && tsc -w\" \"wait-on http://localhost:8001 && tsc && electron .\"",
+    "electron:build": "yarn build && tsc -p electron && electron-builder",
+    "prepare": "husky install",
+    "watch": "tsc -w"
   },
   "config": {
     "commitizen": {

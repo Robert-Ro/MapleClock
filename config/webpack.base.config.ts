@@ -42,7 +42,7 @@ const Config: webpack.Configuration = {
       cleanOnceBeforeBuildPatterns: ['dist'],
     }),
     new webpack.DefinePlugin({}),
-    new ForkTsCheckerWebpackPlugin(),
+    new ForkTsCheckerWebpackPlugin()
   ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
