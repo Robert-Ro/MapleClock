@@ -1,5 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { HelloWorld } from './components'
+import { Clock } from './components'
+import './base.less'
 
-render(<HelloWorld title="hello World" />, document.getElementById('root') as HTMLElement)
+render(<Clock />, document.getElementById('root') as HTMLElement)

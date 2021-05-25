@@ -1,3 +1,3 @@
-import HelloWorld from './helloworld'
+import Clock from './clock'
 
-export { HelloWorld }
+export { Clock }

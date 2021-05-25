@@ -9,7 +9,8 @@
     "core-js": "3",
     "electron": "^12.0.7",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "timer.js": "^1.0.4"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.13.15",

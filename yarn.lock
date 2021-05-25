@@ -7515,6 +7515,11 @@ thunky@^1.0.2:
   resolved "https://registry.nlark.com/thunky/download/thunky-1.1.0.tgz#5abaf714a9405db0504732bbccd2cedd9ef9537d"
   integrity sha1-Wrr3FKlAXbBQRzK7zNLO3Z75U30=
 
+timer.js@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.nlark.com/timer.js/download/timer.js-1.0.4.tgz#18d72dc5cccc40a4eb393694b2f48de2a2a02819"
+  integrity sha1-GNctxczMQKTrOTaUsvSN4qKgKBk=
+
 tmp-promise@^3.0.2:
   version "3.0.2"
   resolved "https://registry.npm.taobao.org/tmp-promise/download/tmp-promise-3.0.2.tgz#6e933782abff8b00c3119d63589ca1fb9caaa62a"
