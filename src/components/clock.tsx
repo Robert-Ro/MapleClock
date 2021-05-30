@@ -17,6 +17,9 @@ const Clock = (): ReactElement => {
     },
     onend: async () => {
       const res = await window.electron.timerEnd()
+      new Notification('Title', {
+        body: 'notification from renderer process!',
+      })
       switch (res) {
         case 'rest':
           alert('休息下')

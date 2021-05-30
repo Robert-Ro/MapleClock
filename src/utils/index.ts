@@ -1,3 +1,7 @@
+import classnames from 'classnames/bind'
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+const cx = (styles: any) => classnames.bind(styles)
+
 const TIME_INTERVAL = 10000
 const VALID_CHANNELS = ['timer-end', 'rest-end']
 const calculateTimeText = (ms: number): string => {
@@ -6,4 +10,5 @@ const calculateTimeText = (ms: number): string => {
   const min = (+s / 60).toFixed(0)
   return `${min.padStart(2, '0')}:${second.toString().padStart(2, '0')}`
 }
-export { TIME_INTERVAL, VALID_CHANNELS, calculateTimeText }
+
+export { TIME_INTERVAL, VALID_CHANNELS, calculateTimeText, cx }
