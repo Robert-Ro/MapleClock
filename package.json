@@ -5,9 +5,11 @@
   "main": "dist/main.js",
   "homepage": ".",
   "dependencies": {
+    "@ant-design/icons": "^4.6.2",
     "@hot-loader/react-dom": "^17.0.1",
     "core-js": "3",
     "electron": "^12.0.7",
+    "rc-progress": "^3.1.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "timer.js": "^1.0.4"

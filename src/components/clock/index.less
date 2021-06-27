@@ -1,0 +1,33 @@
+.wrapper {
+  display: flex;
+  width: 300px;
+  height: 300px;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+
+  svg {
+    outline: none;
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .circle {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    z-index: -1;
+  }
+
+  .icon {
+    font-size: 48px;
+  }
+
+  .time {
+    font-size: 48px;
+    color: #fc9184;
+  }
+}
