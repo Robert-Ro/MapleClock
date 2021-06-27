@@ -4,7 +4,7 @@ import * as path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
-
+const isDev = process.env.NODE_ENV === 'development'
 const Config: webpack.Configuration = {
   entry: path.resolve(__dirname, '../src/index.tsx'),
   output: {
@@ -26,6 +26,12 @@ const Config: webpack.Configuration = {
           },
           {
             loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              modules: {
+                localIdentName: isDev ? '[local]__[hash:base64:5]' : '__[hash:base64:5]',
+              },
+            },
           },
           {
             loader: 'less-loader',
@@ -42,7 +48,7 @@ const Config: webpack.Configuration = {
       cleanOnceBeforeBuildPatterns: ['dist'],
     }),
     new webpack.DefinePlugin({}),
-    new ForkTsCheckerWebpackPlugin()
+    new ForkTsCheckerWebpackPlugin(),
   ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
